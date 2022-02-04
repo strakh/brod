@@ -281,7 +281,7 @@ handle_call({get_committed_offsets, TopicPartitions}, _From,
             case CbModule:get_committed_offset(CbConfig, Topic, Partition) of
               {ok, Offset} ->
                 {true, {TP, Offset}};
-              undefined ->
+              {ok, undefined} ->
                 false
             end
         end,
